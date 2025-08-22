@@ -12,6 +12,7 @@ namespace RedRunner
         START_SCREEN,
         END_SCREEN,
         PAUSE_SCREEN,
+        SHOP_SCREEN,
         IN_GAME_SCREEN
     }
 

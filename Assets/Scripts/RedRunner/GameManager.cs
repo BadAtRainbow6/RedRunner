@@ -299,6 +299,11 @@ namespace RedRunner
             Application.OpenURL(string.Format(url, m_ShareText, m_ShareUrl));
         }
 
+        public void ShopButton(int id)
+        {
+            Debug.Log(id);
+        }
+
         [System.Serializable]
         public class LoadEvent : UnityEvent
         {
