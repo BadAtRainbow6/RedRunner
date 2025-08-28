@@ -26,9 +26,10 @@ namespace RedRunner.UI
 
             for (int i = 0; i < ShopButtons.Length; i++)
             {
+                int buttonId = i;
                 ShopButtons[i].SetButtonAction(() =>
                 {
-                    GameManager.Singleton.ShopButton(i);
+                    GameManager.Singleton.ShopButton(buttonId);
                 });
             }
         }

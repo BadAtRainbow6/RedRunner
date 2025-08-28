@@ -302,6 +302,21 @@ namespace RedRunner
         public void ShopButton(int id)
         {
             Debug.Log(id);
+            ShopItem item = ShopManager.Singleton.GetItem(id);
+            Debug.Log("Got item");
+            if (item != null && !item.purchased && GameManager.Singleton.m_Coin.Value >= item.price)
+            {
+                ShopManager.Singleton.BuyItem(id);
+            }
+            else if (item.purchased)
+            {
+                Debug.Log("Equipped.");
+                // Equip item
+            }
+            else
+            {
+                Debug.Log("Not enough money. Current coins: " + GameManager.Singleton.m_Coin.Value);
+            }
         }
 
         [System.Serializable]
