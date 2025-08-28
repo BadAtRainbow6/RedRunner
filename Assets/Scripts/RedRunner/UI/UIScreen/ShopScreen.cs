@@ -11,6 +11,8 @@ namespace RedRunner.UI
         protected Button ExitButton = null;
         [SerializeField]
         protected Button[] ShopButtons = null;
+        [SerializeField]
+        protected Image[] ShopImages = null;
 
         private void Start()
         {
@@ -31,6 +33,13 @@ namespace RedRunner.UI
                 {
                     GameManager.Singleton.ShopButton(buttonId);
                 });
+            }
+
+            for (int i = 0; i < ShopManager.Singleton.GetItems().Count && i < ShopImages.Length; i++)
+            {
+                ShopImages[i].sprite = ShopManager.Singleton.GetItem(i).image;
+                ShopImages[i].color = new Color(1f, 1f, 1f, 1f);
+                ShopImages[i].preserveAspect = true;
             }
         }
         public override void UpdateScreenStatus(bool open)

@@ -7,7 +7,7 @@ namespace RedRunner
 {
     public sealed class ShopManager : MonoBehaviour
     {
-        [SerializeField] Texture[] textures;
+        [SerializeField] Sprite[] sprites;
         private List<ShopItem> shopItems = new List<ShopItem>();
 
         private static ShopManager m_Singleton;
@@ -29,19 +29,63 @@ namespace RedRunner
 
         public void SetItems()
         {
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 15; i++)
             {
-                shopItems.Add(CreateItem(i));
+                ShopItem item = CreateItem(i);
+
+                if(item != null)
+                {
+                    shopItems.Add(item);
+                }
             }
+        }
+
+        public List<ShopItem> GetItems()
+        {
+            return shopItems;
         }
 
         public ShopItem CreateItem(int id)
         {
-            Texture texture = textures[id];
+            if(id > sprites.Length - 1)
+            {
+                return null;
+            }
+
+            Sprite sprite = sprites[id];
+
             switch (id)
             {
                 case 0:
-                    return new ShopItem("Cowboy Hat", texture, 2);
+                    return new ShopItem("Cowboy Hat", sprite, 2);
+                case 1:
+                    return new ShopItem("Cowboy Hat", sprite, 2);
+                case 2:
+                    return new ShopItem("Cowboy Hat", sprite, 2);
+                case 3:
+                    return new ShopItem("Cowboy Hat", sprite, 2);
+                case 4:
+                    return new ShopItem("Cowboy Hat", sprite, 2);
+                case 5:
+                    return new ShopItem("Cowboy Hat", sprite, 2);
+                case 6:
+                    return new ShopItem("Cowboy Hat", sprite, 2);
+                case 7:
+                    return new ShopItem("Cowboy Hat", sprite, 2);
+                case 8:
+                    return new ShopItem("Cowboy Hat", sprite, 2);
+                case 9:
+                    return new ShopItem("Cowboy Hat", sprite, 2);
+                case 10:
+                    return new ShopItem("Cowboy Hat", sprite, 2);
+                case 11:
+                    return new ShopItem("Cowboy Hat", sprite, 2);
+                case 12:
+                    return new ShopItem("Cowboy Hat", sprite, 2);
+                case 13:
+                    return new ShopItem("Cowboy Hat", sprite, 2);
+                case 14:
+                    return new ShopItem("Cowboy Hat", sprite, 2);
                 default:
                     Debug.Log("No item found with id: " + id);
                     return null;

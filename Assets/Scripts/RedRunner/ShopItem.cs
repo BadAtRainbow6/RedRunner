@@ -5,11 +5,11 @@ using UnityEngine;
 public class ShopItem
 {
     public string name;
-    public Texture image;
+    public Sprite image;
     public int price;
     public bool purchased = false;
 
-    public ShopItem (string name, Texture image, int price)
+    public ShopItem (string name, Sprite image, int price)
     {
         this.name = name;
         this.image = image;
