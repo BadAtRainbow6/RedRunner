@@ -7,7 +7,7 @@ namespace RedRunner
 {
     public sealed class ShopManager : MonoBehaviour
     {
-        [SerializeField] Sprite[] sprites;
+        [SerializeField] public Sprite[] sprites;
         private List<ShopItem> shopItems = new List<ShopItem>();
 
         private static ShopManager m_Singleton;
