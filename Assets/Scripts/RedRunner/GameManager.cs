@@ -26,6 +26,9 @@ namespace RedRunner
         public static event ScoreHandler OnScoreChanged;
         public static event AudioEnabledHandler OnAudioEnabled;
 
+        [SerializeField] public SpriteRenderer hatPoint;
+        [SerializeField] public SpriteRenderer beltPoint;
+
         private static GameManager m_Singleton;
 
         public static GameManager Singleton
@@ -328,7 +331,18 @@ namespace RedRunner
             else if (item.purchased)
             {
                 Debug.Log("Equipped.");
-                // Equip item
+                switch (item.type)
+                {
+                    case ShopItem.ItemType.HAT:
+                        hatPoint.sprite = item.image;
+                        break;
+                    case ShopItem.ItemType.BELT:
+                        beltPoint.sprite = item.image;
+                        break;
+                    default:
+                        Debug.Log("No point for item type: " + item.type);
+                        break;
+                }
             }
             else
             {

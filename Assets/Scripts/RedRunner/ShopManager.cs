@@ -57,35 +57,15 @@ namespace RedRunner
             switch (id)
             {
                 case 0:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
+                    return new ShopItem("Cowboy Hat", sprite, ShopItem.ItemType.HAT, 2);
                 case 1:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
+                    return new ShopItem("Cowboy Hat", sprite, ShopItem.ItemType.HAT, 2);
                 case 2:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
+                    return new ShopItem("Cowboy Hat", sprite, ShopItem.ItemType.HAT, 2);
                 case 3:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
+                    return new ShopItem("Cowboy Hat", sprite, ShopItem.ItemType.HAT, 2);
                 case 4:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
-                case 5:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
-                case 6:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
-                case 7:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
-                case 8:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
-                case 9:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
-                case 10:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
-                case 11:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
-                case 12:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
-                case 13:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
-                case 14:
-                    return new ShopItem("Cowboy Hat", sprite, 2);
+                    return new ShopItem("Cowboy Hat", sprite, ShopItem.ItemType.HAT, 2);
                 default:
                     Debug.Log("No item found with id: " + id);
                     return null;

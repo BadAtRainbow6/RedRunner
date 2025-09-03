@@ -13,6 +13,8 @@ namespace RedRunner.UI
         protected Button[] ShopButtons = null;
         [SerializeField]
         protected Image[] ShopImages = null;
+        [SerializeField]
+        protected Text[] CostTexts = null;
 
         private void Start()
         {
@@ -40,6 +42,11 @@ namespace RedRunner.UI
                 ShopImages[i].sprite = ShopManager.Singleton.GetItem(i).image;
                 ShopImages[i].color = new Color(1f, 1f, 1f, 1f);
                 ShopImages[i].preserveAspect = true;
+            }
+
+            for (int i = 0; i < ShopManager.Singleton.GetItems().Count && i < CostTexts.Length; i++)
+            {
+                CostTexts[i].text = ShopManager.Singleton.GetItem(i).price.ToString();
             }
         }
         public override void UpdateScreenStatus(bool open)
