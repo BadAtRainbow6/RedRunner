@@ -39,6 +39,7 @@ namespace RedRunner
             }
         }
 
+        #region Global Variables 
         [SerializeField]
         private Character m_MainCharacter;
         [SerializeField]
@@ -54,13 +55,13 @@ namespace RedRunner
         private bool m_GameStarted = false;
         private bool m_GameRunning = false;
         private bool m_AudioEnabled = true;
+        #endregion
 
         /// <summary>
         /// This is my developed callbacks compoents, because callbacks are so dangerous to use we need something that automate the sub/unsub to functions
         /// with this in-house developed callbacks feature, we garantee that the callback will be removed when we don't need it.
         /// </summary>
         public Property<int> m_Coin = new Property<int>(0);
-
 
         #region Getters
         public bool gameStarted
@@ -236,6 +237,7 @@ namespace RedRunner
             }
         }
 
+        #region Control Game State
         public void StartGame()
         {
             m_GameStarted = true;
@@ -259,6 +261,7 @@ namespace RedRunner
             m_GameStarted = false;
             StopGame();
         }
+        #endregion
 
         public void RespawnMainCharacter()
         {
@@ -287,6 +290,7 @@ namespace RedRunner
             }
         }
 
+        #region Share on Socials
         public void ShareOnTwitter()
         {
             Share("https://twitter.com/intent/tweet?text={0}&url={1}");
@@ -312,10 +316,11 @@ namespace RedRunner
             m_ShareText = shareText;
             m_ShareUrl = shareUrl;
         }
+        #endregion
 
         public void ShopButton(int id)
         {
-            Debug.Log(id);
+            Debug.Log("Location of Item space within array : " + id);
             if(id > ShopManager.Singleton.sprites.Length - 1)
             {
                 Debug.Log("No item here.");
@@ -323,7 +328,7 @@ namespace RedRunner
             }
 
             ShopItem item = ShopManager.Singleton.GetItem(id);
-            Debug.Log("Got item");
+            Debug.Log("Got item" + item.name);
             if (item != null && !item.purchased && GameManager.Singleton.m_Coin.Value >= item.price)
             {
                 ShopManager.Singleton.BuyItem(id);

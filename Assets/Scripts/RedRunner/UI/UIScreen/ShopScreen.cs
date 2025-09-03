@@ -16,8 +16,12 @@ namespace RedRunner.UI
         [SerializeField]
         protected Text[] CostTexts = null;
 
-        private void Start()
+        [SerializeField]
+        protected int CurrentCoins = -1;
+
+        public void Start()
         {
+            CurrentCoins = GameManager.Singleton.m_Coin.Value;
             ExitButton.SetButtonAction(() =>
             {
                 var uiManager = UIManager.Singleton;
