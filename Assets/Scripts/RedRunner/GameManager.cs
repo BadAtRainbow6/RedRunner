@@ -10,6 +10,7 @@ using BayatGames.SaveGameFree.Serializers;
 using RedRunner.Characters;
 using RedRunner.Collectables;
 using RedRunner.TerrainGeneration;
+using UnityEngine.WSA;
 
 namespace RedRunner
 {
@@ -210,7 +211,11 @@ namespace RedRunner
 
         public void ExitGame()
         {
-            Application.Quit();
+            #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+            #else
+            UnityEngine.Application.Quit();
+            #endif
         }
 
         public void ToggleAudioEnabled()
@@ -296,7 +301,13 @@ namespace RedRunner
 
         public void Share(string url)
         {
-            Application.OpenURL(string.Format(url, m_ShareText, m_ShareUrl));
+            UnityEngine.Application.OpenURL(string.Format(url, m_ShareText, m_ShareUrl));
+        }
+
+        public void SetShareDetails(string shareText, string shareUrl)
+        {
+            m_ShareText = shareText;
+            m_ShareUrl = shareUrl;
         }
 
         public void ShopButton(int id)
