@@ -320,9 +320,17 @@ namespace RedRunner
             else if (item.purchased)
             {
                 Debug.Log("Equipped.");
-                if(item.type == ShopItem.ItemType.HAT)
+                switch (item.type)
                 {
-                    hatPoint.sprite = item.image;
+                    case ShopItem.ItemType.HAT:
+                        hatPoint.sprite = item.image;
+                        break;
+                    case ShopItem.ItemType.BELT:
+                        beltPoint.sprite = item.image;
+                        break;
+                    default:
+                        Debug.Log("No point for item type: " + item.type);
+                        break;
                 }
             }
             else
